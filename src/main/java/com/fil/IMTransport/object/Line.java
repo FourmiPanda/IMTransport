@@ -1,6 +1,7 @@
 package com.fil.IMTransport.object;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -28,6 +29,8 @@ public class Line {
 
 	public Line() {
 		super();
+		this.inaccessibilities = new HashMap<Timestamp, Inaccessibility>();
+		this.bookings = new HashMap<Timestamp, State>();
 	}
 
 	public Line(Station start, Station end, int distance) {
@@ -35,6 +38,8 @@ public class Line {
 		this.start = start;
 		this.end = end;
 		this.distance = distance;
+		this.inaccessibilities = new HashMap<Timestamp, Inaccessibility>();
+		this.bookings = new HashMap<Timestamp, State>();
 	}
 
 	public Map<Timestamp, Inaccessibility> getInaccessibilities() {
