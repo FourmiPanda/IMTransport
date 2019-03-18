@@ -1,4 +1,4 @@
-package kafka;
+package com.fil.IMTransport.kafka;
 
 public class KafkaService {
 
