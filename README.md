@@ -1,8 +1,9 @@
-<p align="center">
+<div align="center">
   <h1 align="center">IMTransport</h1>
-  <img align="center" width="200px" align="center" alt="logo" src="/documentation/logo.PNG">
   <p align="center">The official library for IMTransport</p>
-</p>
+</div>
+
+<img align="center" width="200px" align="center" alt="logo" src="/documentation/logo.PNG">
 
 ## What is IMTransport ?
 
