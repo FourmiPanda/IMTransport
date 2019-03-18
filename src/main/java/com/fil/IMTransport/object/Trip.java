@@ -28,6 +28,8 @@ public class Trip {
 	private List<Offer> offers;
 	private List<Stop> stops;
 	private List<Line> lines;
+	private Timestamp startHour;
+	private Timestamp endHour;
 	private int nbTrain;
 
 	public Trip() {
