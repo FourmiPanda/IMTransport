@@ -16,6 +16,11 @@ public class Station {
 	public Station() {
 		super();
 	}
+	
+	public Station(String name) {
+		super();
+		this.name = name;
+	}
 
 	public String getName() {
 		return name;

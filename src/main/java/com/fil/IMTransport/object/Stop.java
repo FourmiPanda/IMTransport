@@ -21,6 +21,12 @@ public class Stop {
 		super();
 	}
 
+	public Stop(Timestamp date, Station station) {
+		super();
+		this.date = date;
+		this.station = station;
+	}
+
 	public Timestamp getDate() {
 		return date;
 	}

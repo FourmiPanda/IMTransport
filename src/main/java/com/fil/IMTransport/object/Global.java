@@ -12,5 +12,5 @@ public class Global {
 	public static final int SPEED_TRAIN = 200;
 
 	private Global() {
-	};
+	}
 }

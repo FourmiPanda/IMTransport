@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="com.fil.IMTransport.object.Line" project="Spring_IMTransport" 
     file="/Spring_IMTransport/src/main/java/com/fil/IMTransport/object/Line.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="286" width="361" x="393" y="401"/>    
+    <position height="-1" width="-1" x="495" y="597"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <enumeration id="2" language="java" name="com.fil.IMTransport.object.State" project="Spring_IMTransport" 
     file="/Spring_IMTransport/src/main/java/com/fil/IMTransport/object/State.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="156" y="829"/>    
+    <position height="-1" width="-1" x="247" y="905"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </enumeration>  
   <class id="3" language="java" name="com.fil.IMTransport.object.Global" project="Spring_IMTransport" 
     file="/Spring_IMTransport/src/main/java/com/fil/IMTransport/object/Global.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="124" width="232" x="121" y="147"/>    
+    <position height="-1" width="-1" x="441" y="181"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="com.fil.IMTransport.object.Offer" project="Spring_IMTransport" 
     file="/Spring_IMTransport/src/main/java/com/fil/IMTransport/object/Offer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="196" y="437"/>    
+    <position height="-1" width="-1" x="1092" y="526"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -40,7 +40,7 @@
   <class id="5" language="java" name="com.fil.IMTransport.object.Station" project="Spring_IMTransport" 
     file="/Spring_IMTransport/src/main/java/com/fil/IMTransport/object/Station.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="713" y="844"/>    
+    <position height="-1" width="-1" x="751" y="894"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -50,7 +50,7 @@
   <enumeration id="6" language="java" name="com.fil.IMTransport.object.Inaccessibility" project="Spring_IMTransport" 
     file="/Spring_IMTransport/src/main/java/com/fil/IMTransport/object/Inaccessibility.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="466" y="825"/>    
+    <position height="-1" width="-1" x="488" y="903"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -59,7 +59,7 @@
   </enumeration>  
   <class id="7" language="java" name="com.fil.IMTransport.object.Stop" project="Spring_IMTransport" 
     file="/Spring_IMTransport/src/main/java/com/fil/IMTransport/object/Stop.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="178" width="169" x="794" y="401"/>    
+    <position height="-1" width="-1" x="849" y="556"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -68,7 +68,7 @@
   </class>  
   <class id="8" language="java" name="com.fil.IMTransport.object.Trip" project="Spring_IMTransport" 
     file="/Spring_IMTransport/src/main/java/com/fil/IMTransport/object/Trip.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="214" width="170" x="393" y="147"/>    
+    <position height="-1" width="-1" x="836" y="262"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -76,39 +76,35 @@
     </display>  
   </class>  
   <association id="9">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="10" name="offer"/>      
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="10" name="start"/>      
       <multiplicity id="11" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="12">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="13" name="end"/>      
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="13" name="station"/>      
       <multiplicity id="14" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="15">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="16" name="station">        
-        <position height="20" width="47" x="710" y="727"/>      
-      </attribute>      
-      <multiplicity id="17" minimum="0" maximum="1">        
-        <position height="18" width="27" x="768" y="729"/>      
-      </multiplicity>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="16" name="offer"/>      
+      <multiplicity id="17" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="18">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="19" name="trips"/>      
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="19" name="stops"/>      
       <multiplicity id="20" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="21">    
@@ -121,30 +117,34 @@
   </association>  
   <association id="24">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="25" name="start">        
-        <position height="20" width="34" x="598" y="730"/>      
-      </attribute>      
-      <multiplicity id="26" minimum="0" maximum="1">        
-        <position height="18" width="27" x="636" y="729"/>      
-      </multiplicity>    
+      <attribute id="25" name="inaccessibilities"/>      
+      <multiplicity id="26" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="27">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="28" name="lines"/>      
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="28" name="trips"/>      
       <multiplicity id="29" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="30">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="31" name="inaccessibilities"/>      
-      <multiplicity id="32" minimum="0" maximum="2147483647"/>    
+      <attribute id="31" name="end"/>      
+      <multiplicity id="32" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="33">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="34" name="lines"/>      
+      <multiplicity id="35" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

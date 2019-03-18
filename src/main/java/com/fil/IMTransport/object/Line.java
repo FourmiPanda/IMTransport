@@ -30,6 +30,13 @@ public class Line {
 		super();
 	}
 
+	public Line(Station start, Station end, int distance) {
+		super();
+		this.start = start;
+		this.end = end;
+		this.distance = distance;
+	}
+
 	public Map<Timestamp, Inaccessibility> getInaccessibilities() {
 		return inaccessibilities;
 	}

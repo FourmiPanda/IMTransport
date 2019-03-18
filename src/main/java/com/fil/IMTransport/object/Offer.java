@@ -19,6 +19,11 @@ public class Offer {
 		super();
 	}
 
+	public Offer(List<Trip> trips) {
+		super();
+		this.trips = trips;
+	}
+
 	public List<Trip> getTrips() {
 		return trips;
 	}
