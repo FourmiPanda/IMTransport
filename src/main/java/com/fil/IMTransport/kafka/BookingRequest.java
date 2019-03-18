@@ -36,10 +36,8 @@ public class BookingRequest {
 	}
 
 	private List<BookingLine> lines = new ArrayList<>();
-	private boolean stops;
 
-	public BookingRequest(boolean stops) {
-		this.stops = stops;
+	public BookingRequest() {
 	}
 
 	public void addLine(Date departureDate, Station start, Station end) {
@@ -48,10 +46,6 @@ public class BookingRequest {
 
 	public List<BookingLine> getLines() {
 		return this.lines;
-	}
-
-	public boolean stops() {
-		return this.stops;
 	}
 
 }
