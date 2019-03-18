@@ -10,19 +10,37 @@ import java.util.List;
  * @author Océane
  *
  */
-public class Stroke {
+public class Trip {
 
 	/**
 	 * @param offer Offer - Offre à laquelle répond la course
+	 * @param stops List<Stop> - Liste des arrêts de la course
 	 * @param lines List<Line> - Lignes utilisées par la course
 	 * @param       int nbTrain - Nombre d'attelages de la course
 	 */
 	private Offer offer;
+	private List<Stop> stops;
 	private List<Line> lines;
 	private int nbTrain;
 
-	public Stroke() {
+	public Trip() {
 		super();
+	}
+
+	public Trip(Offer offer, List<Stop> stops, List<Line> lines) {
+		super();
+		this.offer = offer;
+		this.stops = stops;
+		this.lines = lines;
+		this.nbTrain = 1;
+	}
+
+	public Trip(Offer offer, List<Stop> stops, List<Line> lines, int nbTrain) {
+		super();
+		this.offer = offer;
+		this.stops = stops;
+		this.lines = lines;
+		this.nbTrain = nbTrain;
 	}
 
 	public List<Line> getLines() {
@@ -39,6 +57,14 @@ public class Stroke {
 
 	public void setNbTrain(int nbTrain) {
 		this.nbTrain = nbTrain;
+	}
+
+	public List<Stop> getStops() {
+		return stops;
+	}
+
+	public void setStops(List<Stop> stops) {
+		this.stops = stops;
 	}
 
 	public Offer getOffer() {
