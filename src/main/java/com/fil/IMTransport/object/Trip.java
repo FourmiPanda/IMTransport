@@ -1,5 +1,6 @@
 package com.fil.IMTransport.object;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,8 @@ public class Trip {
 	private List<Offer> offers;
 	private List<Stop> stops;
 	private List<Line> lines;
+	private Timestamp startHour;
+	private Timestamp endHour;
 	private int nbTrain;
 
 	public Trip() {
