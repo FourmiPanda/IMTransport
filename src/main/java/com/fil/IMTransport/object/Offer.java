@@ -11,19 +11,19 @@ import java.util.List;
 public class Offer {
 
 	/**
-	 * @param strokes List<Stroke> - Liste des courses répondant à l'offre
+	 * @param trips List<Stroke> - Liste des courses répondant à l'offre
 	 */
-	private List<Stroke> strokes;
+	private List<Trip> trips;
 
 	public Offer() {
 		super();
 	}
 
-	public List<Stroke> getStrokes() {
-		return strokes;
+	public List<Trip> getTrips() {
+		return trips;
 	}
 
-	public void setStrokes(List<Stroke> strokes) {
-		this.strokes = strokes;
+	public void setTrips(List<Trip> trips) {
+		this.trips = trips;
 	}
 }

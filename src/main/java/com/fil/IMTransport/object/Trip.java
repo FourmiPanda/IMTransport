@@ -10,7 +10,7 @@ import java.util.List;
  * @author Océane
  *
  */
-public class Stroke {
+public class Trip {
 
 	/**
 	 * @param offer Offer - Offre à laquelle répond la course
@@ -21,7 +21,7 @@ public class Stroke {
 	private List<Line> lines;
 	private int nbTrain;
 
-	public Stroke() {
+	public Trip() {
 		super();
 	}
 

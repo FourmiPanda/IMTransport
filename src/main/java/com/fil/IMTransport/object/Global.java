@@ -2,6 +2,7 @@ package com.fil.IMTransport.object;
 
 /**
  * Variables globales utiles au programme
+ * 
  * @author Océane
  *
  */
