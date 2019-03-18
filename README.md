@@ -1,14 +1,15 @@
 <p align="center">
   <h1 align="center">IMTransport</h1>
+  <img src="" alt="logo"/>
   <p align="center">The official library for IMTransport</p>
 </p>
 
 
 ## What is IMTransport ?
 
-- **SOME CARAC** - Some info
-- **SOME CARAC** - Some info
-- **SOME CARAC** - Some info
+- **Flexible** - Some info
+- **Dynamic** - Some info
+- **Spring** - Some info
 
 
 ### Quick links

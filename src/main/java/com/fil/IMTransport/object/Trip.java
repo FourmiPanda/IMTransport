@@ -1,5 +1,6 @@
 package com.fil.IMTransport.object;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,31 +14,34 @@ import java.util.List;
 public class Trip {
 
 	/**
-	 * @param offer Offer - Offre à laquelle répond la course
+	 * @param offer List<Offer> - Offres à laquelle répond la course
 	 * @param stops List<Stop> - Liste des arrêts de la course
 	 * @param lines List<Line> - Lignes utilisées par la course
 	 * @param       int nbTrain - Nombre d'attelages de la course
 	 */
-	private Offer offer;
+	private List<Offer> offers;
 	private List<Stop> stops;
 	private List<Line> lines;
 	private int nbTrain;
 
 	public Trip() {
 		super();
+		this.offers = new ArrayList<Offer>();
+		this.stops = new ArrayList<Stop>();
+		this.lines = new ArrayList<Line>();
 	}
 
-	public Trip(Offer offer, List<Stop> stops, List<Line> lines) {
+	public Trip(List<Offer> offers, List<Stop> stops, List<Line> lines) {
 		super();
-		this.offer = offer;
+		this.offers = offers;
 		this.stops = stops;
 		this.lines = lines;
 		this.nbTrain = 1;
 	}
 
-	public Trip(Offer offer, List<Stop> stops, List<Line> lines, int nbTrain) {
+	public Trip(List<Offer> offers, List<Stop> stops, List<Line> lines, int nbTrain) {
 		super();
-		this.offer = offer;
+		this.offers = offers;
 		this.stops = stops;
 		this.lines = lines;
 		this.nbTrain = nbTrain;
@@ -67,11 +71,11 @@ public class Trip {
 		this.stops = stops;
 	}
 
-	public Offer getOffer() {
-		return offer;
+	public List<Offer> getOffers() {
+		return offers;
 	}
 
-	public void setOffer(Offer offer) {
-		this.offer = offer;
+	public void setOffers(List<Offer> offers) {
+		this.offers = offers;
 	}
 }
