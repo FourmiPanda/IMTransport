@@ -5,7 +5,7 @@ public class KafkaService {
 	private KafkaService() {
 	}
 
-	public void askForBooking() {
+	public static void askForBooking(BookingRequest request) {
 		throw new RuntimeException();
 		// TODO
 	}
