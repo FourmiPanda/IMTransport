@@ -4,12 +4,16 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Classe représentant une ligne de train
  * 
  * @author Océane
  *
  */
+@Entity
 public class Line {
 
 	/**
@@ -26,6 +30,10 @@ public class Line {
 	private Station start;
 	private Station end;
 	private int distance;
+	
+	@Id
+	/** identifiant de la ligne */
+	private int id;
 
 	public Line() {
 		super();

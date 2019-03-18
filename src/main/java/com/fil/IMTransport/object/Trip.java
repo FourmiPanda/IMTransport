@@ -3,6 +3,9 @@ package com.fil.IMTransport.object;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Classe représentant une course, qui a pour but de répondre à une offre. Si
  * les lignes A, B et C se suivent une course peut être A->C ou A->B->C par
@@ -11,6 +14,7 @@ import java.util.List;
  * @author Océane
  *
  */
+@Entity
 public class Trip {
 
 	/**
@@ -24,6 +28,10 @@ public class Trip {
 	private List<Line> lines;
 	private int nbTrain;
 
+	@Id
+	/** identifiant de la course */
+	private int id;
+	
 	public Trip() {
 		super();
 		this.offers = new ArrayList<Offer>();

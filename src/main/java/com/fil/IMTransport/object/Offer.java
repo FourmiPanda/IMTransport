@@ -42,6 +42,10 @@ public class Offer {
 	@JsonProperty("nb_passengers")
 	private int nbPassengers;
 	private List<Trip> trips;
+	
+	@Id
+	/** identifiant de l'offre */
+	private int id;
 
 	public Offer() {
 		super();
