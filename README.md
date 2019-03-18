@@ -6,9 +6,9 @@
 
 ## What is IMTransport ?
 
-- **SOME CARAC** - Some info
-- **SOME CARAC** - Some info
-- **SOME CARAC** - Some info
+- **Flexible** - Some info
+- **Dynamic** - Some info
+- **Spring** - Some info
 
 
 ### Quick links
