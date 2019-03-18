@@ -57,6 +57,15 @@ public class Offer {
 		this.trips = trips;
 	}
 
+	public Offer(Timestamp startHour, Timestamp endHour, Station startStation, Station endStation, int nbPassengers) {
+		super();
+		this.startHour = startHour;
+		this.endHour = endHour;
+		// Récupérer la ligne correspondant aux 2 arrêts
+		this.nbPassengers = nbPassengers;
+		this.trips = new ArrayList<Trip>();
+	}
+
 	public List<Trip> getTrips() {
 		return trips;
 	}
