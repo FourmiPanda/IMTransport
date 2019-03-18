@@ -1,9 +1,8 @@
 <p align="center">
   <h1 align="center">IMTransport</h1>
-  ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Logo_TV_2015.png/280px-Logo_TV_2015.png)
+  <img align="center" width="200px" align="center" alt="logo" src="/documentation/logo.PNG">
   <p align="center">The official library for IMTransport</p>
 </p>
-
 
 ## What is IMTransport ?
 
