@@ -2,12 +2,16 @@ package com.fil.IMTransport.object;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Classe représentant un arrêt dans un trajet
  * 
  * @author Océane
  *
  */
+@Entity
 public class Stop {
 
 	/**
@@ -16,7 +20,13 @@ public class Stop {
 	 */
 	private Timestamp date;
 	private Station station;
-
+	private int nbTrain;
+	
+	@Id
+	/** identifiant de l'arrêt */
+	private int id;
+	
+	
 	public Stop() {
 		super();
 	}
@@ -41,5 +51,13 @@ public class Stop {
 
 	public void setStation(Station station) {
 		this.station = station;
+	}
+
+	public int getNbTrain() {
+		return nbTrain;
+	}
+
+	public void setNbTrain(int nbTrain) {
+		this.nbTrain = nbTrain;
 	}
 }
