@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * Classe représentant un arrêt dans un trajet
@@ -16,10 +17,15 @@ public class Stop {
 
 	/**
 	 * @param date    Timestamp - Date de l'arrêt
-	 * @param station Station - Station de l'arrêt
 	 */
 	private Timestamp date;
+	
+	/**
+	 * @param station Station - Station de l'arrêt
+	 */
+	@ManyToOne
 	private Station station;
+	
 	private int nbTrain;
 	
 	@Id
