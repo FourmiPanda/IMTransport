@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  * Classe représentant une course, qui a pour but de répondre à une offre. Si
@@ -18,24 +19,41 @@ import javax.persistence.Id;
  */
 @Entity
 public class Trip {
-
 	/**
-	 * @param offer
-	 *            List<Offer> - Offres à laquelle répond la course
-	 * @param stops
-	 *            List<Stop> - Liste des arrêts de la course
-	 * @param lines
-	 *            List<Line> - Lignes utilisées par la course
-	 * @param int
-	 *            nbTrain - Nombre d'attelages de la course
+	 * @param offer List<Offer> - Offres à laquelle répond la course
 	 */
+	@ManyToMany
 	private List<Offer> offers;
+	
+	/**
+	 * @param stops List<Stop> - Liste des arrêts de la course
+	 */
 	private List<Stop> stops;
+	
+	/**
+	 * @param lines List<Line> - Lignes utilisées par la course
+	 */
 	private List<Line> lines;
+	/**
+	 * @param startHour    Timestamp - Heure de départ de l'offre
+	 */
 	private Timestamp startHour;
+	
+	/**
+	 * @param endHour      Timestamp - Heure de fin de l'offre
+	 */
 	private Timestamp endHour;
+	
+	/**
+	 * @param int nbTrain - Nombre d'attelages de la course
+	 */
 	private int nbTrain;
 
+	/**
+	 * @param String idBooking - identifiant de réservation
+	 */
+	private String idBooking; 
+	
 	@Id
 	/** identifiant de la course */
 	private int id;
@@ -95,6 +113,13 @@ public class Trip {
 		this.offers = offers;
 	}
 
+	public void addOffer(Offer offer) {
+		if(! offers.contains(offer)) {
+			offers.add(offer);
+			offer.addTrip(this);
+		}
+	}
+	
 	public Timestamp getTimeAtStation(Station s) {
 		// TODO @Lucille : Voir où mettre cette méthode
 		for (Stop stop : getStops()) {

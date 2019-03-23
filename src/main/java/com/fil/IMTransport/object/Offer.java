@@ -12,6 +12,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+
 /**
  * Représente une offre donnée par l'autorité de transport
  * 
@@ -19,30 +26,43 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  *
  */
 @XmlRootElement
+@Entity
 public class Offer {
-
 	/**
 	 * @param startHour    Timestamp - Heure de départ de l'offre
-	 * @param endHour      Timestamp - Heure de fin de l'offre
-	 * @param startStation Station - Station de départ de l'offre
-	 * @param endStation   Station - Station d'arrivée de l'offre
-	 * @param line         Line - Ligne ciblée par l'offre
-	 * @param nbPassengers int - Nombre de personnes voyageant sur la ligne entre
-	 *                     l'heure de début et de fin
-	 * @param trips        List<Stroke> - Liste des courses répondant à l'offre
 	 */
 	@JsonProperty("start")
 	private Timestamp startHour;
+	
+	/**
+	 * @param endHour      Timestamp - Heure de fin de l'offre
+	 */
 	private Timestamp endHour;
 
+	/**
+	 * @param startStation Station - Station de départ de l'offre
+	 */
+	@ManyToOne
 	@JsonProperty("start_station")
 	private Station startStation;
 
+	/**
+	 * @param endStation   Station - Station d'arrivée de l'offre
+	 */
+	@ManyToOne
 	@JsonProperty("end_station")
 	private Station endStation;
 
+	/**
+	 * @param nbPassengers int - Nombre de personnes voyageant sur la ligne entre l'heure de début et de fin
+	 */
 	@JsonProperty("nb_passengers")
 	private int nbPassengers;
+	
+	/**
+	 * @param trips        List<Stroke> - Liste des courses répondant à l'offre
+	 */
+	@ManyToMany
 	private List<Trip> trips;
 	
 	@Id
@@ -51,6 +71,7 @@ public class Offer {
 
 	public Offer() {
 		super();
+		trips = new ArrayList<Trip>();
 	}
 
 	public Offer(Timestamp startHour, Timestamp endHour, int nbPassengers) {
@@ -81,26 +102,21 @@ public class Offer {
 		return endStation;
 	}
 
-	public void setStartHour(Timestamp startHour) {
-		this.startHour = startHour;
-	}
-
 	public Timestamp getEndHour() {
 		return endHour;
-	}
-
-	public void setEndHour(Timestamp endHour) {
-		this.endHour = endHour;
 	}
 
 	public int getNbPassengers() {
 		return nbPassengers;
 	}
 
-	public void setNbPassengers(int nbPassengers) {
-		this.nbPassengers = nbPassengers;
+	public void addTrip(Trip trip) {
+		if(! trips.contains(trip)) {
+			this.trips.add(trip);
+			trip.addOffer(this);
+		}
 	}
-
+	
 	/**
 	 * Méthode permettant de parser une offre
 	 * 
@@ -113,7 +129,6 @@ public class Offer {
 	public static Offer parse(String url) throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
 
-		return mapper.readValue(url, new TypeReference<Offer>() {
-		});
+		return mapper.readValue(url, new TypeReference<Offer>() {});
 	}
 }
