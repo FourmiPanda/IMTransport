@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fil.IMTransport.object.Station;
 
+@XmlRootElement
 public class BookingRequest {
 
+	@XmlRootElement
 	protected class BookingLine {
 
 		public BookingLine(Date departureDate, Station start, Station end) {
@@ -17,8 +22,11 @@ public class BookingRequest {
 			this.end = end;
 		}
 
+		@JsonProperty("startTime")
 		private Date departureDate;
+		@JsonProperty("startStation")
 		private Station start;
+		@JsonProperty("endStation")
 		private Station end;
 
 		public Date getDepartureDate() {
@@ -35,6 +43,7 @@ public class BookingRequest {
 
 	}
 
+	@JsonProperty("lines")
 	private List<BookingLine> lines = new ArrayList<>();
 
 	public BookingRequest() {
