@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  * Classe représentant une course, qui a pour but de répondre à une offre. Si
@@ -28,12 +29,15 @@ public class Trip {
 	/**
 	 * @param stops List<Stop> - Liste des arrêts de la course
 	 */
+	@OneToMany
 	private List<Stop> stops;
 	
 	/**
 	 * @param lines List<Line> - Lignes utilisées par la course
 	 */
+	@ManyToMany
 	private List<Line> lines;
+	
 	/**
 	 * @param startHour    Timestamp - Heure de départ de l'offre
 	 */
@@ -89,6 +93,12 @@ public class Trip {
 		this.lines = lines;
 	}
 
+	public void addLine(Line line) {
+		if(! lines.contains(line)) {
+			lines.add(line);
+		}
+	}
+	
 	public int getNbTrain() {
 		return nbTrain;
 	}
@@ -100,11 +110,17 @@ public class Trip {
 	public List<Stop> getStops() {
 		return stops;
 	}
-
+	
 	public void setStops(List<Stop> stops) {
 		this.stops = stops;
 	}
 
+	public void addStop(Stop stop) {
+		if(! stops.contains(stop)) {
+			stops.add(stop);
+		}
+	}
+	
 	public List<Offer> getOffers() {
 		return offers;
 	}
