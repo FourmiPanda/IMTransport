@@ -34,11 +34,13 @@ public class Offer {
 	@JsonProperty("start")
 	private Timestamp startHour;
 	private Timestamp endHour;
+
 	@JsonProperty("start_station")
 	private Station startStation;
+
 	@JsonProperty("end_station")
 	private Station endStation;
-	private Line line;
+
 	@JsonProperty("nb_passengers")
 	private int nbPassengers;
 	private List<Trip> trips;
@@ -49,16 +51,13 @@ public class Offer {
 
 	public Offer() {
 		super();
-		this.trips = new ArrayList<Trip>();
 	}
 
-	public Offer(Timestamp startHour, Timestamp endHour, Line line, int nbPassengers, List<Trip> trips) {
+	public Offer(Timestamp startHour, Timestamp endHour, int nbPassengers) {
 		super();
 		this.startHour = startHour;
 		this.endHour = endHour;
-		this.line = line;
 		this.nbPassengers = nbPassengers;
-		this.trips = trips;
 	}
 
 	public Offer(Timestamp startHour, Timestamp endHour, Station startStation, Station endStation, int nbPassengers) {
@@ -66,20 +65,20 @@ public class Offer {
 		this.startHour = startHour;
 		this.endHour = endHour;
 		// Récupérer la ligne correspondant aux 2 arrêts
+		this.startStation = startStation;
+		this.endStation = endStation;
 		this.nbPassengers = nbPassengers;
-		this.trips = new ArrayList<Trip>();
-	}
-
-	public List<Trip> getTrips() {
-		return trips;
-	}
-
-	public void setTrips(List<Trip> trips) {
-		this.trips = trips;
 	}
 
 	public Timestamp getStartHour() {
 		return startHour;
+	}
+
+	public Station getStartStation() {
+		return startStation;
+	}
+	public Station getEndStation() {
+		return endStation;
 	}
 
 	public void setStartHour(Timestamp startHour) {
@@ -92,14 +91,6 @@ public class Offer {
 
 	public void setEndHour(Timestamp endHour) {
 		this.endHour = endHour;
-	}
-
-	public Line getLine() {
-		return line;
-	}
-
-	public void setLine(Line line) {
-		this.line = line;
 	}
 
 	public int getNbPassengers() {

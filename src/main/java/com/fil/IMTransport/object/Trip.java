@@ -1,5 +1,7 @@
 package com.fil.IMTransport.object;
 
+import java.sql.Timestamp;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,14 +20,20 @@ import javax.persistence.Id;
 public class Trip {
 
 	/**
-	 * @param offer List<Offer> - Offres à laquelle répond la course
-	 * @param stops List<Stop> - Liste des arrêts de la course
-	 * @param lines List<Line> - Lignes utilisées par la course
-	 * @param       int nbTrain - Nombre d'attelages de la course
+	 * @param offer
+	 *            List<Offer> - Offres à laquelle répond la course
+	 * @param stops
+	 *            List<Stop> - Liste des arrêts de la course
+	 * @param lines
+	 *            List<Line> - Lignes utilisées par la course
+	 * @param int
+	 *            nbTrain - Nombre d'attelages de la course
 	 */
 	private List<Offer> offers;
 	private List<Stop> stops;
 	private List<Line> lines;
+	private Timestamp startHour;
+	private Timestamp endHour;
 	private int nbTrain;
 
 	@Id
@@ -85,5 +93,22 @@ public class Trip {
 
 	public void setOffers(List<Offer> offers) {
 		this.offers = offers;
+	}
+
+	public Timestamp getTimeAtStation(Station s) {
+		// TODO @Lucille : Voir où mettre cette méthode
+		for (Stop stop : getStops()) {
+			if (stop.getStation().equals(s)) {
+				return stop.getDate();
+			}
+		}
+		for (Line line : getLines()) {
+			if (line.getEnd().equals(s)) {
+				long date = getTimeAtStation(line.getStart()).getTime();
+				long deltaT = (line.getDistance() / Global.SPEED_TRAIN) * Duration.ofHours(1).toMillis();
+				return new Timestamp(date + deltaT);
+			}
+		}
+		return null;
 	}
 }
