@@ -42,7 +42,11 @@ public class BookingService {
 		bookingRepo.save(booking);
 	}
 
-	public void deleteTopic(int id) {
+	public void deleteBooking(int id) {
 		bookingRepo.deleteById(id);
+	}
+	
+	public void deleteBooking(Booking booking) {
+		bookingRepo.deleteById(booking.getId());
 	}
 }

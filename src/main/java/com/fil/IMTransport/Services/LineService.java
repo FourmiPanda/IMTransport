@@ -42,4 +42,8 @@ public class LineService {
 	public void deleteLine(int id) {
 		lineRepo.deleteById(id);
 	}
+	
+	public void deleteLine(Line line) {
+		lineRepo.deleteById(line.getId());
+	}
 }

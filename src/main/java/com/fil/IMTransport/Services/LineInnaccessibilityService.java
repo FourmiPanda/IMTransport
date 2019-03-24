@@ -44,4 +44,8 @@ public class LineInnaccessibilityService {
 	public void deleteLineInaccessibility(int id) {
 		lineInnaccessRepo.deleteById(id);
 	}
+	
+	public void deleteLineInaccessibility(LineInaccessibility innaccess) {
+		lineInnaccessRepo.deleteById(innaccess.getId());
+	}
 }
