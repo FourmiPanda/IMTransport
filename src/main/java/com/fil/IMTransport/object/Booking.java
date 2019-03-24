@@ -6,11 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 public class Booking {
-
-	public enum State {
-		DRAFT, OK, PENDING;
-	}
-
+	public enum State { DRAFT, OK, PENDING; }
+	
 	@Id
 	private int id;
 
