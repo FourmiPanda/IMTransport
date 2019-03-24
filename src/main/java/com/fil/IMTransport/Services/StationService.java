@@ -42,4 +42,8 @@ public class StationService {
 	public void deleteStation(int id) {
 		stationRepo.deleteById(id);
 	}
+	
+	public void deleteStation(Station station) {
+		stationRepo.deleteById(station.getId());
+	}
 }
