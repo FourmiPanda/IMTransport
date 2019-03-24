@@ -43,6 +43,10 @@ public class Stop {
 		this.station = station;
 	}
 
+	public int getId() {
+		return id;
+	}
+
 	public Timestamp getDate() {
 		return date;
 	}

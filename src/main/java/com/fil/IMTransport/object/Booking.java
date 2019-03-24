@@ -25,17 +25,17 @@ public class Booking {
 	 * @param String
 	 *            idBooking - identifiant de réservation
 	 */
-	private String idBooking;
+	private String idRequest;
 
 	public Booking() {
 		super();
 	}
 
-	public Booking(Line line, Timestamp startDate, String idBooking, State state) {
+	public Booking(Line line, Timestamp startDate, String idRequest, State state) {
 		super();
-		this.line = line;
+		this.setLine(line);
 		this.startDate = startDate;
-		this.idBooking = idBooking;
+		this.idRequest = idRequest;
 		this.state = state;
 	}
 
@@ -60,12 +60,12 @@ public class Booking {
 		this.startDate = startDate;
 	}
 
-	public String getIdBooking() {
-		return idBooking;
+	public String getIdRequest() {
+		return idRequest;
 	}
 
-	public void setIdBooking(String idBooking) {
-		this.idBooking = idBooking;
+	public void setIdRequest(String idRequest) {
+		this.idRequest= idRequest;
 	}
 
 	public State getState() {

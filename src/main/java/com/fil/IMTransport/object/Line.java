@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -36,13 +37,13 @@ public class Line {
 	/**
 	 * @param start             Station - Station de départ de la ligne
 	 */
-	@ManyToMany
+	@ManyToOne
 	private Station start;
 	
 	/**
 	 * @param end               Station - Station de fin de ligne
 	 */
-	@ManyToMany
+	@ManyToOne
 	private Station end;
 	
 	/**
@@ -84,6 +85,13 @@ public class Line {
 		}
 	}
 
+	public void removeInnaccessibility(LineInaccessibility innaccessibility) {
+		if(inaccessibilities.contains(innaccessibility)) {
+			innaccessibility.setLine(null); // TODO j'ai peur que ça génère un problem de not null en BDD
+			inaccessibilities.remove(innaccessibility);
+		}
+	}
+	
 	public Station getStart() {
 		return start;
 	}
@@ -124,6 +132,13 @@ public class Line {
 		if(! bookings.contains(booking)) {
 			booking.setLine(this);
 			bookings.add(booking);
+		}
+	}
+	
+	public void removeBooking(Booking booking) {
+		if(bookings.contains(booking)) {
+			booking.setLine(null); // TODO j'ai peur que ça génère un problem de not null en BDD
+			bookings.remove(booking);
 		}
 	}
 }
