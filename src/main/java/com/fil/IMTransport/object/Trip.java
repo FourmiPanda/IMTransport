@@ -42,7 +42,7 @@ public class Trip {
 	 * @param int nbTrain - Nombre d'attelages de la course
 	 */
 	private int nbTrain;
-	
+
 	@Id
 	/** identifiant de la course */
 	private int id;
@@ -70,6 +70,10 @@ public class Trip {
 		this.nbTrain = nbTrain;
 	}
 
+	public int getId() {
+		return id;
+	}
+	
 	public List<Line> getLines() {
 		return lines;
 	}

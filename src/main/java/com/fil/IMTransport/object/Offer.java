@@ -114,6 +114,10 @@ public class Offer {
 		return trips;
 	}
 
+	public int getId() {
+		return id;
+	}
+
 	public void removeTrip(Trip trip) {
 		if(trips.contains(trip)) {
 			this.trips.remove(trip);
