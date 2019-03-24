@@ -1,25 +1,29 @@
 package com.fil.IMTransport.object;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 public class Booking {
-	private enum State { DRAFT, OK, PENDING; }
-	
+
+	public enum State {
+		DRAFT, OK, PENDING;
+	}
+
 	@Id
 	private int id;
-	
+
 	@ManyToOne
 	private Line line;
-	
+
 	private Timestamp startDate;
-	
+
 	private State state;
-	
+
 	/**
-	 * @param String idBooking - identifiant de réservation
+	 * @param String
+	 *            idBooking - identifiant de réservation
 	 */
 	private String idBooking;
 
@@ -63,5 +67,13 @@ public class Booking {
 	public void setIdBooking(String idBooking) {
 		this.idBooking = idBooking;
 	}
-	
+
+	public State getState() {
+		return this.state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
 }
