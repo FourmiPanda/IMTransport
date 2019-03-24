@@ -1,11 +1,14 @@
 package com.fil.IMTransport.object;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  * Classe représentant une ligne de train
@@ -25,9 +28,11 @@ public class Line {
 	 * @param end               Station - Station de fin de ligne
 	 * @param distance          int - Longueur (en km) de la ligne
 	 */
-	private Map<Timestamp, Inaccessibility> inaccessibilities;
-	private Map<Timestamp, State> bookings;
+	@OneToMany
+	private ArrayList<LineInaccessibility> inaccessibilities;
+	@ManyToMany
 	private Station start;
+	@ManyToMany
 	private Station end;
 	private int distance;
 	
@@ -37,8 +42,7 @@ public class Line {
 
 	public Line() {
 		super();
-		this.inaccessibilities = new HashMap<Timestamp, Inaccessibility>();
-		this.bookings = new HashMap<Timestamp, State>();
+		this.inaccessibilities = new ArrayList<LineInaccessibility>();
 	}
 
 	public Line(Station start, Station end, int distance) {
@@ -46,24 +50,22 @@ public class Line {
 		this.start = start;
 		this.end = end;
 		this.distance = distance;
-		this.inaccessibilities = new HashMap<Timestamp, Inaccessibility>();
-		this.bookings = new HashMap<Timestamp, State>();
+		this.inaccessibilities = new ArrayList<LineInaccessibility>();
 	}
 
-	public Map<Timestamp, Inaccessibility> getInaccessibilities() {
+	public ArrayList<LineInaccessibility> getInaccessibilities() {
 		return inaccessibilities;
 	}
 
-	public void setInaccessibilities(Map<Timestamp, Inaccessibility> inaccessibilities) {
+	public void setInaccessibilities(ArrayList<LineInaccessibility> inaccessibilities) {
 		this.inaccessibilities = inaccessibilities;
 	}
-
-	public Map<Timestamp, State> getBookings() {
-		return bookings;
-	}
-
-	public void setBookings(Map<Timestamp, State> bookings) {
-		this.bookings = bookings;
+	
+	public void addInnaccessibility(LineInaccessibility innaccessibility) {
+		if(! inaccessibilities.contains(innaccessibility)) {
+			innaccessibility.setLine(this);
+			inaccessibilities.add(innaccessibility);
+		}
 	}
 
 	public Station getStart() {
@@ -88,5 +90,9 @@ public class Line {
 
 	public void setDistance(int distance) {
 		this.distance = distance;
+	}
+
+	public int getId() {
+		return id;
 	}
 }
