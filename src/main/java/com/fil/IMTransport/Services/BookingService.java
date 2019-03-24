@@ -34,11 +34,11 @@ public class BookingService {
 		return bookingRepo.findById(id);
 	}
 
-	public void addBooking(Line line, Timestamp startDate, String idRequest, State state, Booking booking) {
+	public void addBooking(Booking booking) {
 		bookingRepo.save(booking);
 	}
 
-	public void updateBooking(Line line, Timestamp startDate, String idRequest, State state, Booking booking) {
+	public void updateBooking(Booking booking) {
 		bookingRepo.save(booking);
 	}
 
