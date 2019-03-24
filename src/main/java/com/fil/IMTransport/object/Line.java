@@ -22,18 +22,32 @@ public class Line {
 	/**
 	 * @param inaccessibilities Map<Timestamp, Inaccessibility> - Date et raison des
 	 *                          inaccessibilités de la ligne
-	 * @param bookings          Map<Timestamp, State> - Date et état des
-	 *                          réservations de la ligne
-	 * @param start             Station - Station de départ de la ligne
-	 * @param end               Station - Station de fin de ligne
-	 * @param distance          int - Longueur (en km) de la ligne
 	 */
 	@OneToMany
 	private ArrayList<LineInaccessibility> inaccessibilities;
+	
+	/**
+	 * @param bookings          Map<Timestamp, State> - Date et état des
+	 *                          réservations de la ligne
+	 */
+	@OneToMany
+	private ArrayList<Booking> bookings;
+	
+	/**
+	 * @param start             Station - Station de départ de la ligne
+	 */
 	@ManyToMany
 	private Station start;
+	
+	/**
+	 * @param end               Station - Station de fin de ligne
+	 */
 	@ManyToMany
 	private Station end;
+	
+	/**
+	 * @param distance          int - Longueur (en km) de la ligne
+	 */
 	private int distance;
 	
 	@Id
@@ -43,6 +57,7 @@ public class Line {
 	public Line() {
 		super();
 		this.inaccessibilities = new ArrayList<LineInaccessibility>();
+		this.bookings = new ArrayList<Booking>();
 	}
 
 	public Line(Station start, Station end, int distance) {
@@ -51,6 +66,7 @@ public class Line {
 		this.end = end;
 		this.distance = distance;
 		this.inaccessibilities = new ArrayList<LineInaccessibility>();
+		this.bookings = new ArrayList<Booking>();
 	}
 
 	public ArrayList<LineInaccessibility> getInaccessibilities() {
@@ -94,5 +110,20 @@ public class Line {
 
 	public int getId() {
 		return id;
+	}
+
+	public ArrayList<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(ArrayList<Booking> bookings) {
+		this.bookings = bookings;
+	}
+	
+	public void addBooking(Booking booking) {
+		if(! bookings.contains(booking)) {
+			booking.setLine(this);
+			bookings.add(booking);
+		}
 	}
 }

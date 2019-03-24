@@ -52,11 +52,6 @@ public class Trip {
 	 * @param int nbTrain - Nombre d'attelages de la course
 	 */
 	private int nbTrain;
-
-	/**
-	 * @param String idBooking - identifiant de réservation
-	 */
-	private String idBooking; 
 	
 	@Id
 	/** identifiant de la course */
