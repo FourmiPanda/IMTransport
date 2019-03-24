@@ -19,12 +19,24 @@ import com.fil.IMTransport.object.Booking.State;
 public class BookingService {
 	@Autowired
 	private BookingRepository bookingRepo;
-	
+
 	public List<Booking> getBookings() {
+		List<Booking> bookings = new ArrayList<Booking>();
+
+		for (Booking t : bookingRepo.findAll()) {
+			bookings.add(t);
+		}
+
+		return bookings;
+	}
+
+	public List<Booking> getBookingsByIdRequest(String idRequest) {
 		List<Booking> bookings = new ArrayList<Booking>();
 		
 		for(Booking t: bookingRepo.findAll()) {
-			bookings.add(t);
+			if(t.getIdRequest().equals(idRequest)) {
+				bookings.add(t);
+			}
 		}
 		
 		return bookings;	
@@ -45,7 +57,7 @@ public class BookingService {
 	public void deleteBooking(int id) {
 		bookingRepo.deleteById(id);
 	}
-	
+
 	public void deleteBooking(Booking booking) {
 		bookingRepo.deleteById(booking.getId());
 	}
