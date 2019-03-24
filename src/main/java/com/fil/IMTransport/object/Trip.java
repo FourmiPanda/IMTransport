@@ -39,16 +39,6 @@ public class Trip {
 	private List<Line> lines;
 	
 	/**
-	 * @param startHour    Timestamp - Heure de départ de l'offre
-	 */
-	private Timestamp startHour;
-	
-	/**
-	 * @param endHour      Timestamp - Heure de fin de l'offre
-	 */
-	private Timestamp endHour;
-	
-	/**
 	 * @param int nbTrain - Nombre d'attelages de la course
 	 */
 	private int nbTrain;
@@ -94,6 +84,12 @@ public class Trip {
 		}
 	}
 	
+	public void removeLine(Line line) {
+		if(lines.contains(line)) {
+			lines.remove(line);
+		}
+	}
+	
 	public int getNbTrain() {
 		return nbTrain;
 	}
@@ -116,6 +112,12 @@ public class Trip {
 		}
 	}
 	
+	public void removeStop(Stop stop) {
+		if(stops.contains(stop)) {
+			stops.remove(stop);
+		}
+	}
+	
 	public List<Offer> getOffers() {
 		return offers;
 	}
@@ -128,6 +130,13 @@ public class Trip {
 		if(! offers.contains(offer)) {
 			offers.add(offer);
 			offer.addTrip(this);
+		}
+	}
+	
+	public void removeOffer(Offer offer) {
+		if(offers.contains(offer)) {
+			offers.remove(offer);
+			offer.removeTrip(this);
 		}
 	}
 	

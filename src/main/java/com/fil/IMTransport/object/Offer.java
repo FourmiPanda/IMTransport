@@ -110,6 +110,16 @@ public class Offer {
 		return nbPassengers;
 	}
 
+	public List<Trip> getTrips() {
+		return trips;
+	}
+
+	public void removeTrip(Trip trip) {
+		if(trips.contains(trip)) {
+			this.trips.remove(trip);
+			trip.removeOffer(this);
+		}	}
+
 	public void addTrip(Trip trip) {
 		if(! trips.contains(trip)) {
 			this.trips.add(trip);

@@ -28,7 +28,7 @@ public class LineInaccessibility {
 
 	public LineInaccessibility(Line line, Timestamp startDate, Timestamp endDate, Inaccessibility reason) {
 		super();
-		this.line = line;
+		this.setLine(line);
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.reason = reason;
