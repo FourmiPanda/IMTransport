@@ -1,6 +1,6 @@
 package com.fil.IMTransport.object;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,18 +8,21 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class LineInaccessibility {
-	private enum Inaccessibility { REJECTED, WORK; }
-	
+
+	public enum Inaccessibility {
+		REJECTED, WORK;
+	}
+
 	@Id
 	private int id;
-	
+
 	@ManyToOne
 	private Line line;
-	
+
 	private Timestamp startDate;
-	
+
 	private Timestamp endDate;
-	
+
 	private Inaccessibility reason;
 
 	public LineInaccessibility() {
@@ -70,5 +73,5 @@ public class LineInaccessibility {
 	public void setReason(Inaccessibility reason) {
 		this.reason = reason;
 	}
-	
+
 }
