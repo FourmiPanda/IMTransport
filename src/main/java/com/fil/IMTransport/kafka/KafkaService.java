@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fil.IMTransport.ImTransportApplication;
 import com.fil.IMTransport.Services.BookingService;
 import com.fil.IMTransport.Services.OfferService;
+import com.fil.IMTransport.handler.offer.BasicOfferHandler;
 import com.fil.IMTransport.object.Booking;
 import com.fil.IMTransport.object.Booking.State;
 import com.fil.IMTransport.object.Offer;
@@ -71,6 +72,12 @@ public class KafkaService {
 		//Appel à l'algo d'Ismail
 	}
 
+	@KafkaListener(topics = "maintenance", groupId = "transport")
+	public static void listenMaintenance(String message) throws IOException {
+		System.out.println("Received message in maintenance: " + message);
+		// Appel handleCancel
+	}
+	
 	@XmlRootElement
 	protected class Response {
 		@JsonProperty("id")
