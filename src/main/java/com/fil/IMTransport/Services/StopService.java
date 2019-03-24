@@ -42,4 +42,8 @@ public class StopService {
 	public void deleteStop(int id) {
 		stopRepo.deleteById(id);
 	}
+	
+	public void deleteStop(Stop stop) {
+		stopRepo.deleteById(stop.getId());
+	}
 }

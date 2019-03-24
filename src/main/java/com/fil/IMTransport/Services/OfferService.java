@@ -42,4 +42,8 @@ public class OfferService {
 	public void deleteOffer(int id) {
 		offerRepo.deleteById(id);
 	}
+	
+	public void deleteOffer(Offer offer) {
+		offerRepo.deleteById(offer.getId());
+	}
 }
