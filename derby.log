@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Mon Mar 25 15:10:50 CET 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0169-b530-8696-000000404eb8 
-on database directory memory:D:\Users\lucille.gillard\Documents\a1-IMT\spring\IMTransport\testdb with class loader sun.misc.Launcher$AppClassLoader@139a55 
-Loaded from file:/C:/Users/lucille.gillard/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+Mon Mar 25 15:50:10 CET 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0169-b554-88a8-00000c0f1730 
+on database directory memory:C:\Users\Océane\Documents\FILA1\Spring\IMTransport\testdb with class loader sun.misc.Launcher$AppClassLoader@764c12b6 
+Loaded from file:/C:/Users/Oc%c3%a9ane/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_181-b13
-user.dir=D:\Users\lucille.gillard\Documents\a1-IMT\spring\IMTransport
+java.runtime.version=1.8.0_131-b11
+user.dir=C:\Users\Océane\Documents\FILA1\Spring\IMTransport
 os.name=Windows 10
-os.arch=x86
+os.arch=amd64
 os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
