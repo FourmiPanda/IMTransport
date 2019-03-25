@@ -1,12 +1,12 @@
 package com.fil.IMTransport.kafka;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.annotation.KafkaListener;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,15 +19,13 @@ import com.fil.IMTransport.handler.booking.BookingHandler;
 import com.fil.IMTransport.handler.offer.BasicOfferHandler;
 import com.fil.IMTransport.object.Offer;
 
-@Configuration // this will tell Spring that this is a configuration class
-@EnableKafka // this will tell the Spring-Kafka integration that you want to talk to Kafka
 public class KafkaService {
 
 	private static ObjectMapper mapper = new ObjectMapper();
 
 	private static BookingHandler bookingHandler = BasicBookingHandler.getInstance();
 
-	private KafkaService() {
+	public KafkaService() {
 	}
 
 	public static void sendTripInfo(TripInfo tripInfo) {
@@ -80,16 +78,14 @@ public class KafkaService {
 
 	@XmlRootElement
 	protected class Response {
-
 		@JsonProperty("id")
 		private String id;
 		@JsonProperty("outcome")
 		private boolean accepted;
 	}
-
+	
 	@XmlRootElement
 	protected class ListOffers {
-
 		@JsonProperty("offers")
 		private List<Offer> offers;
 	}
