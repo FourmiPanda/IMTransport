@@ -22,6 +22,8 @@ public class BasicBookingHandler implements BookingHandler {
 	private BookingService bookingService;
 	@Autowired
 	private LineService lineService;
+	@Autowired
+	private KafkaService kafkaService;
 
 	private static BasicBookingHandler instance;
 
@@ -49,7 +51,7 @@ public class BasicBookingHandler implements BookingHandler {
 				b.setStartDate(trip.getTimeAtStation(l.getStart()));
 				b.setState(Booking.State.PENDING);
 				addBooking(b);
-				KafkaService.askForBooking(request);
+				kafkaService.askForBooking(request);
 			});
 		});
 	}
@@ -69,7 +71,7 @@ public class BasicBookingHandler implements BookingHandler {
 		Booking b = getBooking(id);
 		b.setState(Booking.State.OK);
 		updateBooking(b);
-		KafkaService.sendTripInfo(new TripInfo(b.getLine().getStart().getName(), b.getLine().getEnd().getName(), 500,
+		kafkaService.sendTripInfo(new TripInfo(b.getLine().getStart().getName(), b.getLine().getEnd().getName(), 500,
 				b.getStartDate().getTime()));
 	}
 

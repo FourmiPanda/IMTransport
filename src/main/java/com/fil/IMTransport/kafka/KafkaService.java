@@ -1,13 +1,12 @@
 package com.fil.IMTransport.kafka;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -19,16 +18,17 @@ import com.fil.IMTransport.handler.booking.BookingHandler;
 import com.fil.IMTransport.handler.offer.BasicOfferHandler;
 import com.fil.IMTransport.object.Offer;
 
+@Service
 public class KafkaService {
 
-	private static ObjectMapper mapper = new ObjectMapper();
+	private ObjectMapper mapper = new ObjectMapper();
 
-	private static BookingHandler bookingHandler = BasicBookingHandler.getInstance();
+	private BookingHandler bookingHandler = BasicBookingHandler.getInstance();
 
 	public KafkaService() {
 	}
 
-	public static void sendTripInfo(TripInfo tripInfo) {
+	public void sendTripInfo(TripInfo tripInfo) {
 		try {
 			ImTransportApplication.kafkaTemplate.send("transport", mapper.writeValueAsString(tripInfo));
 			System.out.println("Booking request sent: " + mapper.writeValueAsString(tripInfo));
@@ -37,7 +37,7 @@ public class KafkaService {
 		}
 	}
 
-	public static void askForBooking(BookingRequest request) {
+	public void askForBooking(BookingRequest request) {
 		try {
 			ImTransportApplication.kafkaTemplate.send("request", mapper.writeValueAsString(request));
 			System.out.println("Booking request sent: " + mapper.writeValueAsString(request));
@@ -47,7 +47,7 @@ public class KafkaService {
 	}
 
 	@KafkaListener(topics = "response", groupId = "transport")
-	public static void listenResponse(String message) throws IOException {
+	public void listenResponse(String message) throws IOException {
 		System.out.println("Received message in response: " + message);
 
 		Response response = mapper.readValue(message, Response.class);
@@ -59,7 +59,7 @@ public class KafkaService {
 	}
 
 	@KafkaListener(topics = "offers", groupId = "transport")
-	public static void listenOffers(String message) throws IOException {
+	public void listenOffers(String message) throws IOException {
 		System.out.println("Received message in offer: " + message);
 		ListOffers offers = mapper.readValue(message, ListOffers.class);
 
@@ -70,7 +70,7 @@ public class KafkaService {
 	}
 
 	@KafkaListener(topics = "maintenance", groupId = "transport")
-	public static void listenMaintenance(String message) throws IOException {
+	public void listenMaintenance(String message) throws IOException {
 		System.out.println("Received message in maintenance: " + message);
 		String idCanceledRequest = "";
 		bookingHandler.handleCancel(idCanceledRequest);
@@ -78,14 +78,16 @@ public class KafkaService {
 
 	@XmlRootElement
 	protected class Response {
+
 		@JsonProperty("id")
 		private String id;
 		@JsonProperty("outcome")
 		private boolean accepted;
 	}
-	
+
 	@XmlRootElement
 	protected class ListOffers {
+
 		@JsonProperty("offers")
 		private List<Offer> offers;
 	}
