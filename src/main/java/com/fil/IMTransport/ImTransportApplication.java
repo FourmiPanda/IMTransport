@@ -15,4 +15,21 @@ public class ImTransportApplication {
 	public static void main(String[] args) {
         SpringApplication.run(ImTransportApplication.class, args);
     }
+	
+	public void run(ApplicationArguments args) throws Exception {
+		kafkaTemplate.send("offers", "{"
+				+ "\"offers\" : ["
+				+ "	\"start\":\"1553522400	\","
+				+ "	\"start_station\":\"A\","
+				+ "	\"end_station\":\"B\","
+				+ "	\"nb_passengers\" : \"420\""
+				+ "]"
+				+ "["
+				+ "	\"start\":\"1553522400	\","
+				+ "	\"start_station\":\"C\","
+				+ "	\"end_station\":\"B\","
+				+ "	\"nb_passengers\" : \"630\""
+				+ "]"
+				+ "}");
+	}
 }
