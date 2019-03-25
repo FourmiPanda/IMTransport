@@ -1,13 +1,10 @@
 package com.fil.IMTransport.object;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -25,14 +22,14 @@ public class Line {
 	 *                          inaccessibilités de la ligne
 	 */
 	@OneToMany
-	private ArrayList<LineInaccessibility> inaccessibilities;
+	private List<LineInaccessibility> inaccessibilities = new ArrayList<LineInaccessibility>();
 	
 	/**
 	 * @param bookings          Map<Timestamp, State> - Date et état des
 	 *                          réservations de la ligne
 	 */
 	@OneToMany
-	private ArrayList<Booking> bookings;
+	private List<Booking> bookings = new ArrayList<Booking>();
 	
 	/**
 	 * @param start             Station - Station de départ de la ligne
@@ -56,25 +53,19 @@ public class Line {
 	private int id;
 
 	public Line() {
-		super();
-		this.inaccessibilities = new ArrayList<LineInaccessibility>();
-		this.bookings = new ArrayList<Booking>();
 	}
 
 	public Line(Station start, Station end, int distance) {
-		super();
 		this.start = start;
 		this.end = end;
 		this.distance = distance;
-		this.inaccessibilities = new ArrayList<LineInaccessibility>();
-		this.bookings = new ArrayList<Booking>();
 	}
 
-	public ArrayList<LineInaccessibility> getInaccessibilities() {
+	public List<LineInaccessibility> getInaccessibilities() {
 		return inaccessibilities;
 	}
 
-	public void setInaccessibilities(ArrayList<LineInaccessibility> inaccessibilities) {
+	public void setInaccessibilities(List<LineInaccessibility> inaccessibilities) {
 		this.inaccessibilities = inaccessibilities;
 	}
 	
@@ -120,11 +111,11 @@ public class Line {
 		return id;
 	}
 
-	public ArrayList<Booking> getBookings() {
+	public List<Booking> getBookings() {
 		return bookings;
 	}
 
-	public void setBookings(ArrayList<Booking> bookings) {
+	public void setBookings(List<Booking> bookings) {
 		this.bookings = bookings;
 	}
 	

@@ -2,9 +2,11 @@ package com.fil.IMTransport.object;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class Booking {
 	public enum State { DRAFT, OK, PENDING; }
 	
