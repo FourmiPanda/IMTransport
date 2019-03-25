@@ -31,26 +31,7 @@ public class ImTransportApplication {
     }
 	
 	public void run(ApplicationArguments args) throws Exception {
-//		// Récupération des offres
-//		Offer offer = new Offer(new Timestamp(1551942000), new Timestamp(1551949200), new Station("A"), new Station("B"), 300);
-//		ArrayList<Offer> offers = new ArrayList<>();
-//		offers.add(offer);
-//		
-//		// Création des courses
-//		BasicOfferHandler boh = new BasicOfferHandler();
-//		boh.handle(offers);
-//		//A compléter...
-//		
-//		// Envoi des demandes de réservation
-//		BookingRequest br = new BookingRequest();
-//		Station start = new Station();
-//		start.setName("A");
-//		
-//		Station stop= new Station();
-//		stop.setName("B");
-//		
-//		br.addLine(new Date(), start, stop);
-//		KafkaService.askForBooking(br);
+
 	}
 
 }
