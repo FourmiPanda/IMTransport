@@ -34,6 +34,12 @@ public class OfferService {
 	public void addOffer(Offer offer) {
 		offerRepo.save(offer);
 	}
+	
+	public void addOffer(List<Offer> offers) {
+		for(Offer offer : offers) {
+			offerRepo.save(offer);
+		}
+	}
 
 	public void updateOffer(Offer offer) {
 		offerRepo.save(offer);

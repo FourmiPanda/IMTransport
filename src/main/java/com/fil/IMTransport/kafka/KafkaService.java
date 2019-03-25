@@ -1,6 +1,9 @@
 package com.fil.IMTransport.kafka;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -13,6 +16,7 @@ import com.fil.IMTransport.ImTransportApplication;
 import com.fil.IMTransport.Services.OfferService;
 import com.fil.IMTransport.handler.booking.BasicBookingHandler;
 import com.fil.IMTransport.handler.booking.BookingHandler;
+import com.fil.IMTransport.handler.offer.BasicOfferHandler;
 import com.fil.IMTransport.object.Offer;
 
 public class KafkaService {
@@ -57,12 +61,12 @@ public class KafkaService {
 	@KafkaListener(topics = "offers", groupId = "transport")
 	public static void listenOffers(String message) throws IOException {
 		System.out.println("Received message in offer: " + message);
-		Offer offer = mapper.readValue(message, Offer.class);
+		ListOffers offers = mapper.readValue(message, ListOffers.class);
 
 		OfferService offerService = new OfferService();
-		offerService.addOffer(offer);
+		offerService.addOffer(offers.offers);
 
-		// Appel à l'algo d'Ismail
+		new BasicOfferHandler().handle(offers.offers);
 	}
 
 	@KafkaListener(topics = "maintenance", groupId = "transport")
@@ -74,10 +78,15 @@ public class KafkaService {
 
 	@XmlRootElement
 	protected class Response {
-
 		@JsonProperty("id")
 		private String id;
 		@JsonProperty("outcome")
 		private boolean accepted;
+	}
+	
+	@XmlRootElement
+	protected class ListOffers {
+		@JsonProperty("offers")
+		private List<Offer> offers;
 	}
 }
