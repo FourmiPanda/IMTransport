@@ -3,6 +3,8 @@ package com.fil.IMTransport.handler.offer;
 import com.fil.IMTransport.Services.BookingService;
 import com.fil.IMTransport.Services.LineInnaccessibilityService;
 import com.fil.IMTransport.Services.LineService;
+import com.fil.IMTransport.handler.booking.BasicBookingHandler;
+import com.fil.IMTransport.handler.booking.BookingHandler;
 import com.fil.IMTransport.object.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,8 +22,10 @@ public class BasicOfferHandler implements OfferHandler {
     @Autowired
     private LineInnaccessibilityService lineInnaccessibilityService;
 
+    private BookingHandler bookingHandler = BasicBookingHandler.getInstance();
+
     @Override
-    public List<Trip> handle(List<Offer> offers) {
+    public void handle(List<Offer> offers) {
 
         ArrayList<Trip> trips = new ArrayList<>();
         for (Offer o : offers) {
@@ -39,7 +43,7 @@ public class BasicOfferHandler implements OfferHandler {
             trips.add(t);
         }
 
-        return trips;
+        bookingHandler.book(trips);
     }
 
     private double getNbTrainFromPassenger(int nbPassenger) {
