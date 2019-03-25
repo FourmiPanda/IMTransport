@@ -7,7 +7,6 @@ import java.util.List;
 
 public class AdvancedOfferHandler implements OfferHandler{
     @Override
-    public List<Trip> handle(List<Offer> offers) {
-        return null;
+    public void handle(List<Offer> offers) {
     }
 }
