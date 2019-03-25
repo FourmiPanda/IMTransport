@@ -8,6 +8,6 @@ import java.util.List;
 public interface OfferHandler {
     
 
-    public List<Trip> handle(List<Offer> offers);
+    public void handle(List<Offer> offers);
 
 }
