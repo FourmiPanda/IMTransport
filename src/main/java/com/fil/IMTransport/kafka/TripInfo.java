@@ -7,16 +7,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @XmlRootElement
 public class TripInfo {
 
-	@JsonProperty("departure")
+	@JsonProperty("start_station")
 	private String departure;
 
-	@JsonProperty("arrival")
+	@JsonProperty("end_station")
 	private String arrival;
 
-	@JsonProperty("nbPassengers")
+	@JsonProperty("nb_passengers")
 	private int nbPassengers;
 
-	@JsonProperty("timestamp")
+	@JsonProperty("start")
 	private long timestamp;
 
 	public TripInfo(String departure, String arrival, int nbPassengers, long timestamp) {
